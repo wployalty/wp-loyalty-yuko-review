@@ -1,0 +1,148 @@
+#wlyr-main-page {
+  font-family: Helvetica, sans-serif, Arial, sans-serif;
+  margin-right: 15px;
+  background-color: rgb(248, 248, 252);
+  padding: 0 2rem 2rem 2rem;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  outline: none;
+}
+#wlyr-main-page .wlyr-main-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#wlyr-main-page .wlyr-main-header h1 {
+  color: rgb(22, 31, 49);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  min-width: max-content;
+}
+#wlyr-main-page .wlyr-main-header div {
+  position: relative;
+  z-index: 10;
+  margin-top: 0.375rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: rgb(122, 129, 143);
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+#wlyr-main-page .wlyr-parent {
+  background: #FFFFFF;
+  width: 100%;
+  border-radius: 0 12px 12px 12px;
+  border: 1px solid #E7E7EF;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content {
+  min-height: 75vh;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-input-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 2rem;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-input-section .wlyr-input-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-input-section .wlyr-button-section {
+  margin-top: 20px;
+  margin-left: 70px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-input-section .wlyr-button-section #wlyr-save-settings {
+  color: #FFFFFF;
+  background-color: #4F47EB;
+  cursor: pointer;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-body-active-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2rem;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-body-active-content:not(.active-content) {
+  display: none;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .active-content {
+  display: flex;
+  justify-content: flex-start;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data a {
+  text-decoration: none;
+  font-size: 13px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data .headings {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data .heading-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data .heading-section a {
+  margin-top: 5px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data .heading-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-content: center;
+  justify-content: center;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-heading-data .back-to-loyalty {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-button-action {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #4F47EB;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: max-content;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-weight: 500;
+  transition: all 0.1s ease;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .wlyr-button-action i {
+  font-size: 1rem;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .colored-button {
+  background-color: #4F47EB;
+  color: #FFFFFF;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .colored-button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
+#wlyr-main-page .wlyr-parent .wlyr-body-content .non-colored-button {
+  color: #4F47EB;
+  background: white;
+}
+
+/*# sourceMappingURL=admin.css.map */
