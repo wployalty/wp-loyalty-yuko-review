@@ -1,0 +1,93 @@
+# Copyright (C) 2025 WPLoyalty
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPLoyalty - Yuko Review 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-loyalty-yuko-review\n"
+"Last-Translator: emaileditorplus <support@sparkeditor.com>\n"
+"Language-Team: emaileditorplus <support@sparkeditor.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-20T09:03:22+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: wp-loyalty-yuko-review\n"
+
+#. Plugin Name of the plugin
+#: wp-loyalty-yuko-review.php
+msgid "WPLoyalty - Yuko Review"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-loyalty-yuko-review.php
+msgid "https://www.wployalty.net"
+msgstr ""
+
+#. Description of the plugin
+#: wp-loyalty-yuko-review.php
+msgid "The add-on integrates WPLoyalty with the Yuko and allows you to reward customers with points for writing reviews in Yuko"
+msgstr ""
+
+#. Author of the plugin
+#: wp-loyalty-yuko-review.php
+msgid "WPLoyalty"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-loyalty-yuko-review.php
+msgid "https://wployalty.net/"
+msgstr ""
+
+#: App/Controllers/Common.php:37
+msgid "Don't have access permission"
+msgstr ""
+
+#: App/Controllers/Common.php:71
+msgid "Saving..."
+msgstr ""
+
+#: App/Controllers/Common.php:72
+#: App/Views/main.php:37
+msgid "Save Settings"
+msgstr ""
+
+#: App/Controllers/Common.php:92
+msgid "Basic check failed"
+msgstr ""
+
+#: App/Controllers/Common.php:98
+msgid "Setting saved successfully"
+msgstr ""
+
+#: App/Controllers/Common.php:132
+msgid "Signature verification failed"
+msgstr ""
+
+#: App/Controllers/Common.php:141
+msgid "Customer email invalid"
+msgstr ""
+
+#: App/Controllers/Common.php:149
+msgid "Platform product id missing"
+msgstr ""
+
+#: App/Controllers/Common.php:164
+msgid "Webhook received successfully"
+msgstr ""
+
+#: App/Views/main.php:15
+msgid "Settings"
+msgstr ""
+
+#: App/Views/main.php:21
+msgid "Back to WPLoyalty"
+msgstr ""
+
+#: App/Views/main.php:29
+msgid "Secret key:"
+msgstr ""
+
+#: App/Views/main.php:32
+msgid "Enter Secret Key"
+msgstr ""
