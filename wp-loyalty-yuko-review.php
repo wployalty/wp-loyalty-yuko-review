@@ -78,7 +78,6 @@ add_action( 'before_woocommerce_init', function () {
 if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	return;
 }
-
 require __DIR__ . '/vendor/autoload.php';
 
 if ( class_exists( Router::class ) ) {
