@@ -44,7 +44,8 @@ class Common {
 		$settings = get_option( 'wplyr_settings', [] );
 		$params   = [
 			'back_to_apps_url' => admin_url( 'admin.php?' . http_build_query( [ 'page' => WLR_PLUGIN_SLUG ] ) ) . '#/apps',
-			'secret_key'       => $settings['secret_key'] ?? ''
+			'secret_key'       => $settings['secret_key'] ?? '',
+            'webhook_url'      => rest_url( 'wployalty/yuko/v1/review/approved' )
 		];
 		WC::renderTemplate( $path, $params );
 	}
@@ -70,6 +71,9 @@ class Common {
 			'nonce'               => wp_create_nonce( 'wlyr_admin_nonce' ),
 			'saving_button_label' => __( 'Saving...', 'wp-loyalty-yuko-review' ),
 			'saved_button_label'  => __( 'Save Settings', 'wp-loyalty-yuko-review' ),
+			'copied_button_label' => __( 'Copied!', 'wp-loyalty-yuko-review' ),
+			'copied_notification_label' => __( 'Webhook URL copied to clipboard!', 'wp-loyalty-yuko-review' ),
+			'copy_error_label' => __( 'Failed to copy webhook URL. Please copy it manually.', 'wp-loyalty-yuko-review' ),
 		] );
 	}
 
@@ -107,32 +111,33 @@ class Common {
 		] );
 	}
 
-	protected static function verifySignature( $data ) {
+	protected static function verifySignature( \WP_REST_Request $request ) {
 		$settings   = get_option( 'wplyr_settings', [] );
 		$secret_key = $settings['secret_key'] ?? '';
-		$signature  = $data['signature'];
-		unset( $data['signature'] );
-		$sorted_params = '';
-		foreach ( $data as $key => $value ) {
-			if ( is_array( $value ) ) {
-				$value = implode( ',', $value );
-			}
-			$sorted_params .= "{$key}={$value}";
-		}
-		// Calculate HMAC signature
-		$calculated_signature = hash_hmac( 'sha256', $sorted_params, $secret_key );
 
+		$signature  = $request->get_header('x-yuko-hmac-sha256');
+		if(empty($signature)){
+			return false;
+		}
+		$params = $request->get_body();
+		$params = json_decode($params,true);
+		$payload = json_encode($params, JSON_UNESCAPED_SLASHES);
+		// Calculate HMAC signature
+		$calculated_signature = base64_encode(hash_hmac( 'sha256', $payload, $secret_key, true ));
 		return hash_equals( $signature, $calculated_signature );
 	}
 
-	public static function handleApprovedReview( $data ) {
-		if ( ! self::verifySignature( $data ) ) {
+	public static function handleApprovedReview( \WP_REST_Request $request ) {
+
+		if ( ! self::verifySignature( $request ) ) {
+			wc_get_logger()->add('review','Signature verification failed');
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Signature verification failed', 'wp-loyalty-yuko-review' )
 			] );
 		}
-
+		$body = $request->get_body();
+		$data = json_decode($body,true);
 
 		$email = $data['email'] ?? '';
 		if ( empty( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {

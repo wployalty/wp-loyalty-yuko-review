@@ -26,10 +26,25 @@ defined( 'ABSPATH' ) or die;
             </div>
             <div class="wlyr-input-section table-content">
                 <div class="wlyr-input-content">
-                    <label><?php esc_html_e( 'Secret key:', 'wp-loyalty-yuko-review' ) ?></label>
-                    <input type="password" id="wlyr-secret_key" name="secret_key"
-                           value="<?php echo esc_attr( $secret_key ); ?>"
-                           placeholder="<?php esc_attr_e( 'Enter Secret Key', 'wp-loyalty-yuko-review' ); ?>">
+                    <div class="wlyr-webhook-content">
+                        <label><?php esc_html_e( 'Webhook URL:', 'wp-loyalty-yuko-review' ) ?></label>
+                        <div class="wlyr-webhook-url-container">
+                            <div class="wlyr-webhook-url-display">
+                                <span id="wlyr-webhook-url-text"><?php echo esc_html( $webhook_url ); ?></span>
+                            </div>
+                            <button type="button" id="wlyr-copy-webhook-url" class="wlyr-button-action colored-button wlyr-copy-button" title="<?php esc_attr_e( 'Copy to clipboard', 'wp-loyalty-yuko-review' ); ?>">
+                                <i class="wlr wlrf-copy"></i>
+                                <span><?php esc_html_e( 'Copy', 'wp-loyalty-yuko-review' ); ?></span>
+                            </button>
+                        </div>
+                        <p class="description"><?php esc_html_e( 'Use this webhook URL in Yuko to notify when a review is approved.', 'wp-loyalty-yuko-review' ) ?></p>
+                    </div>
+                    <div class="wlyr-secret-key-section">
+                        <label><?php esc_html_e( 'Secret key:', 'wp-loyalty-yuko-review' ) ?></label>
+                        <input type="password" id="wlyr-secret_key" name="secret_key"
+                               value="<?php echo esc_attr( $secret_key ); ?>"
+                               placeholder="<?php esc_attr_e( 'Enter Secret Key', 'wp-loyalty-yuko-review' ); ?>">
+                    </div>
                 </div>
                 <div class="wlyr-button-section">
                     <button id="wlyr-save-settings" class="wlyr-button-action">

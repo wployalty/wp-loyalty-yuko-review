@@ -83,9 +83,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 if ( class_exists( Router::class ) ) {
 	$myUpdateChecker = PucFactory::buildUpdateChecker(
-		'https://github.com/wployalty/wployalty_judge_me',
+		'https://github.com/wployalty/wp-loyalty-yuko-review',
 		__FILE__,
-		'wp-loyalty-judge-me'
+		'wp-loyalty-yuko-review'
 	);
 	$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 	$router = new Router();
