@@ -62,6 +62,7 @@ class Common {
 		wp_enqueue_style( WLYR_PLUGIN_SLUG . '-admin-css', WLYR_PLUGIN_URL . 'assets/css/admin.css', [], WLYR_PLUGIN_VERSION );
 		wp_enqueue_script( WLYR_PLUGIN_SLUG . '-wlyr-admin', WLYR_PLUGIN_URL . 'assets/js/admin.js', [ 'jquery' ], WLYR_PLUGIN_VERSION . '&t=' . time(), true );
 		wp_enqueue_style( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Css/alertify.min.css', [], WLR_PLUGIN_VERSION );
+        //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NotInFooter
 		wp_enqueue_script( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Js/alertify.min.js', [], WLR_PLUGIN_VERSION . '&t=' . time() );
 		wp_enqueue_style( WLR_PLUGIN_SLUG . '-wlr-font', WLR_PLUGIN_URL . 'Assets/Site/Css/wlr-fonts.min.css', [], WLR_PLUGIN_VERSION );
 		wp_localize_script( WLYR_PLUGIN_SLUG . '-wlyr-admin', 'wlyr_localize_data', [

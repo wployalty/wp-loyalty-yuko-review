@@ -24,6 +24,11 @@ use WLYR\App\Router;
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 defined( 'ABSPATH' ) or die;
+add_action( 'before_woocommerce_init', function () {
+	if ( class_exists( FeaturesUtil::class ) ) {
+		FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__ );
+	}
+} );
 if ( ! function_exists( 'isWPLoyaltyActiveOrNot' ) ) {
 	/**
 	 * Check WPLoyalty active or not.
@@ -68,12 +73,6 @@ defined( 'WLYR_PLUGIN_SLUG' ) or define( 'WLYR_PLUGIN_SLUG', 'wp-loyalty-yuko-re
 defined( 'WLYR_PLUGIN_PATH' ) or define( 'WLYR_PLUGIN_PATH', __DIR__ . '/' );
 defined( 'WLYR_PLUGIN_URL' ) or define( 'WLYR_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 defined( 'WLYR_PLUGIN_FILE' ) or define( 'WLYR_PLUGIN_FILE', __FILE__ );
-
-add_action( 'before_woocommerce_init', function () {
-	if ( class_exists( FeaturesUtil::class ) ) {
-		FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__ );
-	}
-} );
 
 if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	return;

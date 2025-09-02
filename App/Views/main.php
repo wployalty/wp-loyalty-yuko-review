@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or die;
                         </div>
                         <div class="heading-buttons">
                             <a type="button" class="wlyr-button-action non-colored-button"
-                               href="<?php echo ! empty( $back_to_apps_url ) ? $back_to_apps_url : '#'; ?>">
+                               href="<?php echo ! empty( $back_to_apps_url ) ? esc_url($back_to_apps_url) : '#'; ?>">
                                 <i class="wlr wlrf-back"></i>
                                 <span><?php esc_html_e( "Back to WPLoyalty", 'wp-loyalty-yuko-review' ); ?></span>
                             </a>

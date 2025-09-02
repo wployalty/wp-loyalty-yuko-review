@@ -51,6 +51,7 @@ class WC {
 			$content = ob_get_clean();
 		}
 		if ( $display ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $content;
 		} else {
 			return $content;
