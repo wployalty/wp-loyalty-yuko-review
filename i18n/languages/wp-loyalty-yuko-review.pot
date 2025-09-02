@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-02T09:08:37+00:00\n"
+"POT-Creation-Date: 2025-09-02T11:16:22+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-loyalty-yuko-review\n"
@@ -68,32 +68,40 @@ msgstr ""
 msgid "Basic check failed"
 msgstr ""
 
-#: App/Controllers/Common.php:103
+#: App/Controllers/Common.php:102
+msgid "Secret key required"
+msgstr ""
+
+#: App/Controllers/Common.php:109
 msgid "Setting saved successfully"
 msgstr ""
 
-#: App/Controllers/Common.php:137
+#: App/Controllers/Common.php:143
 msgid "Signature verification failed"
 msgstr ""
 
-#: App/Controllers/Common.php:147
+#: App/Controllers/Common.php:153
 msgid "Customer email invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:155
+#: App/Controllers/Common.php:161
 msgid "Platform product id missing"
 msgstr ""
 
-#: App/Controllers/Common.php:162
+#: App/Controllers/Common.php:168
 msgid "Review status missing"
 msgstr ""
 
-#: App/Controllers/Common.php:169
+#: App/Controllers/Common.php:175
 msgid "Review status invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:184
+#: App/Controllers/Common.php:190
 msgid "Webhook received successfully"
+msgstr ""
+
+#: App/Setup.php:55
+msgid "Support"
 msgstr ""
 
 #: App/Views/main.php:15
