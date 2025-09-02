@@ -96,6 +96,12 @@ class Common {
 		if ( ! WC::isBasicCheckValid( 'wlyr_admin_nonce' ) ) {
 			wp_send_json_error( [ 'message' => __( 'Basic check failed', 'wp-loyalty-yuko-review' ) ] );
 		}
+
+        $secret_key = (string) Input::get( 'secret_key' );
+        if(empty($secret_key)){
+	        wp_send_json_error( [ 'message' => __( 'Secret key required', 'wp-loyalty-yuko-review' ) ] );
+        }
+
 		$data = [
 			'secret_key' => (string) Input::get( 'secret_key' )
 		];
