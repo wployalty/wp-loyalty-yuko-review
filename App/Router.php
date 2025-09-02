@@ -22,7 +22,7 @@ class Router {
 		if(is_admin()){
 			add_action( 'admin_menu', [ Common::class, 'addMenu' ] );
 			add_action( 'admin_enqueue_scripts', [ Common::class, 'adminScripts' ], 100 );
-			//add_action( 'admin_footer', [ Common::class, 'hideMenu' ] );
+			add_action( 'admin_footer', [ Common::class, 'hideMenu' ] );
 			add_action( 'wp_ajax_wlyr_save_settings', [ Common::class, 'save' ] );
 		}
 		add_action( 'rest_api_init', [ Common::class, 'registerRestApi' ] );
