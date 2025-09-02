@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-20T09:03:22+00:00\n"
+"POT-Creation-Date: 2025-09-02T09:08:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-loyalty-yuko-review\n"
@@ -43,36 +43,56 @@ msgstr ""
 msgid "Don't have access permission"
 msgstr ""
 
-#: App/Controllers/Common.php:71
+#: App/Controllers/Common.php:73
 msgid "Saving..."
 msgstr ""
 
-#: App/Controllers/Common.php:72
-#: App/Views/main.php:37
+#: App/Controllers/Common.php:74
+#: App/Views/main.php:52
 msgid "Save Settings"
 msgstr ""
 
-#: App/Controllers/Common.php:92
+#: App/Controllers/Common.php:75
+msgid "Copied!"
+msgstr ""
+
+#: App/Controllers/Common.php:76
+msgid "Webhook URL copied to clipboard!"
+msgstr ""
+
+#: App/Controllers/Common.php:77
+msgid "Failed to copy webhook URL. Please copy it manually."
+msgstr ""
+
+#: App/Controllers/Common.php:97
 msgid "Basic check failed"
 msgstr ""
 
-#: App/Controllers/Common.php:98
+#: App/Controllers/Common.php:103
 msgid "Setting saved successfully"
 msgstr ""
 
-#: App/Controllers/Common.php:132
+#: App/Controllers/Common.php:137
 msgid "Signature verification failed"
 msgstr ""
 
-#: App/Controllers/Common.php:141
+#: App/Controllers/Common.php:147
 msgid "Customer email invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:149
+#: App/Controllers/Common.php:155
 msgid "Platform product id missing"
 msgstr ""
 
-#: App/Controllers/Common.php:164
+#: App/Controllers/Common.php:162
+msgid "Review status missing"
+msgstr ""
+
+#: App/Controllers/Common.php:169
+msgid "Review status invalid"
+msgstr ""
+
+#: App/Controllers/Common.php:184
 msgid "Webhook received successfully"
 msgstr ""
 
@@ -84,10 +104,26 @@ msgstr ""
 msgid "Back to WPLoyalty"
 msgstr ""
 
-#: App/Views/main.php:29
+#: App/Views/main.php:30
+msgid "Webhook URL:"
+msgstr ""
+
+#: App/Views/main.php:35
+msgid "Copy to clipboard"
+msgstr ""
+
+#: App/Views/main.php:37
+msgid "Copy"
+msgstr ""
+
+#: App/Views/main.php:40
+msgid "Use this webhook URL in Yuko to notify when a review is approved."
+msgstr ""
+
+#: App/Views/main.php:43
 msgid "Secret key:"
 msgstr ""
 
-#: App/Views/main.php:32
+#: App/Views/main.php:46
 msgid "Enter Secret Key"
 msgstr ""

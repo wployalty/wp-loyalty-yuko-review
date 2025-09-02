@@ -156,6 +156,20 @@ class Common {
 			] );
 		}
 
+        if(empty($data['status'])){
+	        return new \WP_REST_Response( [
+		        'success' => false,
+		        'message' => __( 'Review status missing', 'wp-loyalty-yuko-review' )
+	        ] );
+        }
+
+        if(strtolower($data['status']) !== 'approved'){
+	        return new \WP_REST_Response( [
+		        'success' => false,
+		        'message' => __( 'Review status invalid', 'wp-loyalty-yuko-review' )
+	        ] );
+        }
+
 		$product_review_helper = new ProductReview();
 		$action_data           = [
 			'user_email'         => $email,
