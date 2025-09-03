@@ -169,6 +169,13 @@ class Common {
 	        ] );
         }
 
+        if(!empty($data['deleted_at'])){
+            return new \WP_REST_Response( [
+                'success' => false,
+                'message' => __( 'Review is deleted', 'wp-loyalty-yuko-review' )
+            ] );
+        }
+
         if(strtolower($data['status']) !== 'approved'){
 	        return new \WP_REST_Response( [
 		        'success' => false,
