@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPLoyalty - Yuko Review 1.0.0\n"
+"Project-Id-Version: WPLoyalty - Yuko Review 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-loyalty-yuko-review\n"
 "Last-Translator: emaileditorplus <support@sparkeditor.com>\n"
 "Language-Team: emaileditorplus <support@sparkeditor.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-02T12:11:40+00:00\n"
+"POT-Creation-Date: 2025-09-04T05:19:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-loyalty-yuko-review\n"
@@ -93,10 +93,14 @@ msgid "Review status missing"
 msgstr ""
 
 #: App/Controllers/Common.php:175
+msgid "Review is deleted"
+msgstr ""
+
+#: App/Controllers/Common.php:182
 msgid "Review status invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:190
+#: App/Controllers/Common.php:197
 msgid "Webhook received successfully"
 msgstr ""
 
