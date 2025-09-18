@@ -43,9 +43,10 @@ class Common {
 		$path     = WLYR_PLUGIN_PATH . 'App/Views/main.php';
 		$settings = get_option( 'wplyr_settings', [] );
 		$params   = [
-			'back_to_apps_url' => admin_url( 'admin.php?' . http_build_query( [ 'page' => WLR_PLUGIN_SLUG ] ) ) . '#/apps',
-			'secret_key'       => $settings['secret_key'] ?? '',
-            'webhook_url'      => rest_url( 'wployalty/yuko/v1/review/approved' )
+			'back_to_apps_url'   => admin_url( 'admin.php?' . http_build_query( [ 'page' => WLR_PLUGIN_SLUG ] ) ) . '#/apps',
+			'secret_key'         => $settings['secret_key'] ?? '',
+			'webhook_url'        => rest_url( 'wployalty/yuko/v1/review/approved' ),
+			'tutorial_video_url' => 'https://youtu.be/X9tmvnIbuS0',
 		];
 		WC::renderTemplate( $path, $params );
 	}
@@ -59,22 +60,28 @@ class Common {
 			return;
 		}
 		remove_all_actions( 'admin_notices' );
-		wp_enqueue_style( WLYR_PLUGIN_SLUG . '-admin-css', WLYR_PLUGIN_URL . 'assets/css/admin.css', [], WLYR_PLUGIN_VERSION );
-		wp_enqueue_script( WLYR_PLUGIN_SLUG . '-wlyr-admin', WLYR_PLUGIN_URL . 'assets/js/admin.js', [ 'jquery' ], WLYR_PLUGIN_VERSION . '&t=' . time(), true );
-		wp_enqueue_style( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Css/alertify.min.css', [], WLR_PLUGIN_VERSION );
-        //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NotInFooter
-		wp_enqueue_script( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Js/alertify.min.js', [], WLR_PLUGIN_VERSION . '&t=' . time() );
-		wp_enqueue_style( WLR_PLUGIN_SLUG . '-wlr-font', WLR_PLUGIN_URL . 'Assets/Site/Css/wlr-fonts.min.css', [], WLR_PLUGIN_VERSION );
+		wp_enqueue_style( WLYR_PLUGIN_SLUG . '-admin-css', WLYR_PLUGIN_URL . 'assets/css/admin.css', [],
+			WLYR_PLUGIN_VERSION );
+		wp_enqueue_script( WLYR_PLUGIN_SLUG . '-wlyr-admin', WLYR_PLUGIN_URL . 'assets/js/admin.js', [ 'jquery' ],
+			WLYR_PLUGIN_VERSION . '&t=' . time(), true );
+		wp_enqueue_style( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Css/alertify.min.css', [],
+			WLR_PLUGIN_VERSION );
+		//phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NotInFooter
+		wp_enqueue_script( WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Js/alertify.min.js', [],
+			WLR_PLUGIN_VERSION . '&t=' . time() );
+		wp_enqueue_style( WLR_PLUGIN_SLUG . '-wlr-font', WLR_PLUGIN_URL . 'Assets/Site/Css/wlr-fonts.min.css', [],
+			WLR_PLUGIN_VERSION );
 		wp_localize_script( WLYR_PLUGIN_SLUG . '-wlyr-admin', 'wlyr_localize_data', [
-			'ajax_url'            => admin_url( 'admin-ajax.php' ),
-			'plugin_url'          => WLYR_PLUGIN_URL,
-			'home_url'            => home_url(),
-			'nonce'               => wp_create_nonce( 'wlyr_admin_nonce' ),
-			'saving_button_label' => __( 'Saving...', 'wp-loyalty-yuko-review' ),
-			'saved_button_label'  => __( 'Save Settings', 'wp-loyalty-yuko-review' ),
-			'copied_button_label' => __( 'Copied!', 'wp-loyalty-yuko-review' ),
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'plugin_url'                => WLYR_PLUGIN_URL,
+			'home_url'                  => home_url(),
+			'nonce'                     => wp_create_nonce( 'wlyr_admin_nonce' ),
+			'saving_button_label'       => __( 'Saving...', 'wp-loyalty-yuko-review' ),
+			'saved_button_label'        => __( 'Save Settings', 'wp-loyalty-yuko-review' ),
+			'copied_button_label'       => __( 'Copied!', 'wp-loyalty-yuko-review' ),
 			'copied_notification_label' => __( 'Webhook URL copied to clipboard!', 'wp-loyalty-yuko-review' ),
-			'copy_error_label' => __( 'Failed to copy webhook URL. Please copy it manually.', 'wp-loyalty-yuko-review' ),
+			'copy_error_label'          => __( 'Failed to copy webhook URL. Please copy it manually.',
+				'wp-loyalty-yuko-review' ),
 		] );
 	}
 
@@ -97,10 +104,10 @@ class Common {
 			wp_send_json_error( [ 'message' => __( 'Basic check failed', 'wp-loyalty-yuko-review' ) ] );
 		}
 
-        $secret_key = (string) Input::get( 'secret_key' );
-        if(empty($secret_key)){
-	        wp_send_json_error( [ 'message' => __( 'Secret key required', 'wp-loyalty-yuko-review' ) ] );
-        }
+		$secret_key = (string) Input::get( 'secret_key' );
+		if ( empty( $secret_key ) ) {
+			wp_send_json_error( [ 'message' => __( 'Secret key required', 'wp-loyalty-yuko-review' ) ] );
+		}
 
 		$data = [
 			'secret_key' => (string) Input::get( 'secret_key' )
@@ -122,29 +129,31 @@ class Common {
 		$settings   = get_option( 'wplyr_settings', [] );
 		$secret_key = $settings['secret_key'] ?? '';
 
-		$signature  = $request->get_header('x-yuko-hmac-sha256');
-		if(empty($signature)){
+		$signature = $request->get_header( 'x-yuko-hmac-sha256' );
+		if ( empty( $signature ) ) {
 			return false;
 		}
-		$params = $request->get_body();
-		$params = json_decode($params,true);
-		$payload = json_encode($params, JSON_UNESCAPED_SLASHES);
+		$params  = $request->get_body();
+		$params  = json_decode( $params, true );
+		$payload = json_encode( $params, JSON_UNESCAPED_SLASHES );
 		// Calculate HMAC signature
-		$calculated_signature = base64_encode(hash_hmac( 'sha256', $payload, $secret_key, true ));
+		$calculated_signature = base64_encode( hash_hmac( 'sha256', $payload, $secret_key, true ) );
+
 		return hash_equals( $signature, $calculated_signature );
 	}
 
 	public static function handleApprovedReview( \WP_REST_Request $request ) {
 
 		if ( ! self::verifySignature( $request ) ) {
-			wc_get_logger()->add('review','Signature verification failed');
+			wc_get_logger()->add( 'review', 'Signature verification failed' );
+
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Signature verification failed', 'wp-loyalty-yuko-review' )
 			] );
 		}
 		$body = $request->get_body();
-		$data = json_decode($body,true);
+		$data = json_decode( $body, true );
 
 		$email = $data['email'] ?? '';
 		if ( empty( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
@@ -162,26 +171,26 @@ class Common {
 			] );
 		}
 
-        if(empty($data['status'])){
-	        return new \WP_REST_Response( [
-		        'success' => false,
-		        'message' => __( 'Review status missing', 'wp-loyalty-yuko-review' )
-	        ] );
-        }
+		if ( empty( $data['status'] ) ) {
+			return new \WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Review status missing', 'wp-loyalty-yuko-review' )
+			] );
+		}
 
-        if(!empty($data['deleted_at'])){
-            return new \WP_REST_Response( [
-                'success' => false,
-                'message' => __( 'Review is deleted', 'wp-loyalty-yuko-review' )
-            ] );
-        }
+		if ( ! empty( $data['deleted_at'] ) ) {
+			return new \WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Review is deleted', 'wp-loyalty-yuko-review' )
+			] );
+		}
 
-        if(strtolower($data['status']) !== 'approved'){
-	        return new \WP_REST_Response( [
-		        'success' => false,
-		        'message' => __( 'Review status invalid', 'wp-loyalty-yuko-review' )
-	        ] );
-        }
+		if ( strtolower( $data['status'] ) !== 'approved' ) {
+			return new \WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Review status invalid', 'wp-loyalty-yuko-review' )
+			] );
+		}
 
 		$product_review_helper = new ProductReview();
 		$action_data           = [

@@ -3,7 +3,7 @@
  * Plugin Name: WPLoyalty - Yuko Review
  * Plugin URI: https://www.wployalty.net
  * Description: The add-on integrates WPLoyalty with the Yuko and allows you to reward customers with points for writing reviews in Yuko
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: WPLoyalty
  * Slug: wp-loyalty-yuko-review
  * Text Domain: wp-loyalty-yuko-review
@@ -41,7 +41,9 @@ if ( ! function_exists( 'isWPLoyaltyActiveOrNot' ) ) {
 			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', [] ) );
 		}
 
-		return in_array( 'wp-loyalty-rules/wp-loyalty-rules.php', $active_plugins, false ) || in_array( 'wp-loyalty-rules-lite/wp-loyalty-rules-lite.php', $active_plugins, false ) || in_array( 'wployalty/wp-loyalty-rules-lite.php', $active_plugins, false );
+		return in_array( 'wp-loyalty-rules/wp-loyalty-rules.php', $active_plugins,
+				false ) || in_array( 'wp-loyalty-rules-lite/wp-loyalty-rules-lite.php', $active_plugins,
+				false ) || in_array( 'wployalty/wp-loyalty-rules-lite.php', $active_plugins, false );
 	}
 }
 
@@ -57,16 +59,17 @@ if ( ! function_exists( 'isWoocommerceActive' ) ) {
 			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', [] ) );
 		}
 
-		return in_array( 'woocommerce/woocommerce.php', $active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
+		return in_array( 'woocommerce/woocommerce.php',
+				$active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
 	}
 }
 
-if ( ! isWoocommerceActive() || ! isWployaltyActiveOrNot()  ) {
+if ( ! isWoocommerceActive() || ! isWployaltyActiveOrNot() ) {
 	return;
 }
 
 //Define the plugin version
-defined( 'WLYR_PLUGIN_VERSION' ) or define( 'WLYR_PLUGIN_VERSION', '1.0.1' );
+defined( 'WLYR_PLUGIN_VERSION' ) or define( 'WLYR_PLUGIN_VERSION', '1.0.2' );
 defined( 'WLYR_PLUGIN_NAME' ) or define( 'WLYR_PLUGIN_NAME', 'WPLoyalty - Yuko Review' );
 defined( 'WLYR_MINIMUM_PHP_VERSION' ) or define( 'WLYR_MINIMUM_PHP_VERSION', '7.4' );
 defined( 'WLYR_MINIMUM_WP_VERSION' ) or define( 'WLYR_MINIMUM_WP_VERSION', '6.0' );
@@ -90,12 +93,12 @@ if ( class_exists( Router::class ) ) {
 		'wp-loyalty-yuko-review'
 	);
 	$myUpdateChecker->getVcsApi()->enableReleaseAssets();
-	if ( !class_exists( \WLYR\App\Helpers\Plugin::class ) || !class_exists(\WLYR\App\Setup::class)) {
+	if ( ! class_exists( \WLYR\App\Helpers\Plugin::class ) || ! class_exists( \WLYR\App\Setup::class ) ) {
 		return;
 	}
 	\WLYR\App\Setup::init();
 	$router = new Router();
-	if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies()) {
+	if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies() ) {
 		$router->init();
 	}
 }
