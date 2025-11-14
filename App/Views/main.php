@@ -13,10 +13,18 @@ defined( 'ABSPATH' ) or die;
                     <div class="headings">
                         <div class="heading-section">
                             <h3><?php esc_html_e( "Settings", 'wp-loyalty-yuko-review' ); ?></h3>
+                            <a type="button"
+                               class="watch-section"
+                               href="<?php echo ! empty( $tutorial_video_url ) ? esc_url( $tutorial_video_url ) : '#'; ?>"
+                               target="_blank" ">
+                            <i class="wlr wlrf-video-link"></i>
+                            <span class="watch-section-title"><?php esc_html_e( 'watch',
+									'wp-loyalty-yuko-review' ); ?></span>
+                            </a>
                         </div>
                         <div class="heading-buttons">
                             <a type="button" class="wlyr-button-action non-colored-button"
-                               href="<?php echo ! empty( $back_to_apps_url ) ? esc_url($back_to_apps_url) : '#'; ?>">
+                               href="<?php echo ! empty( $back_to_apps_url ) ? esc_url( $back_to_apps_url ) : '#'; ?>">
                                 <i class="wlr wlrf-back"></i>
                                 <span><?php esc_html_e( "Back to WPLoyalty", 'wp-loyalty-yuko-review' ); ?></span>
                             </a>
@@ -32,12 +40,15 @@ defined( 'ABSPATH' ) or die;
                             <div class="wlyr-webhook-url-display">
                                 <span id="wlyr-webhook-url-text"><?php echo esc_html( $webhook_url ); ?></span>
                             </div>
-                            <button type="button" id="wlyr-copy-webhook-url" class="wlyr-button-action colored-button wlyr-copy-button" title="<?php esc_attr_e( 'Copy to clipboard', 'wp-loyalty-yuko-review' ); ?>">
+                            <button type="button" id="wlyr-copy-webhook-url"
+                                    class="wlyr-button-action colored-button wlyr-copy-button"
+                                    title="<?php esc_attr_e( 'Copy to clipboard', 'wp-loyalty-yuko-review' ); ?>">
                                 <i class="wlr wlrf-copy"></i>
                                 <span><?php esc_html_e( 'Copy', 'wp-loyalty-yuko-review' ); ?></span>
                             </button>
                         </div>
-                        <p class="description"><?php esc_html_e( 'Use this webhook URL in Yuko to notify when a review is approved.', 'wp-loyalty-yuko-review' ) ?></p>
+                        <p class="description"><?php esc_html_e( 'Use this webhook URL in Yuko to notify when a review is approved. URL must be in HTTPS format.',
+								'wp-loyalty-yuko-review' ) ?></p>
                     </div>
                     <div class="wlyr-secret-key-section">
                         <label><?php esc_html_e( 'Secret key:', 'wp-loyalty-yuko-review' ) ?></label>
