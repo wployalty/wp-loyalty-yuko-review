@@ -202,7 +202,7 @@ class Common {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => $error_message
-			] );
+			],400 );
 		}
 
 		$product_review_helper = new ProductReview();

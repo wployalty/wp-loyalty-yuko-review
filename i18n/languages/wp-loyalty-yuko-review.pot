@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPLoyalty - Yuko Review 1.0.1\n"
+"Project-Id-Version: WPLoyalty - Yuko Review 1.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-loyalty-yuko-review\n"
 "Last-Translator: emaileditorplus <support@sparkeditor.com>\n"
 "Language-Team: emaileditorplus <support@sparkeditor.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-18T13:25:37+05:30\n"
+"POT-Creation-Date: 2025-11-14T13:39:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-loyalty-yuko-review\n"
 
 #. Plugin Name of the plugin
@@ -76,31 +76,35 @@ msgstr ""
 msgid "Setting saved successfully"
 msgstr ""
 
-#: App/Controllers/Common.php:152
+#: App/Controllers/Common.php:150
 msgid "Signature verification failed"
 msgstr ""
 
-#: App/Controllers/Common.php:162
+#: App/Controllers/Common.php:161
 msgid "Customer email invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:170
+#: App/Controllers/Common.php:169
 msgid "Platform product id missing"
 msgstr ""
 
-#: App/Controllers/Common.php:177
+#: App/Controllers/Common.php:176
 msgid "Review status missing"
 msgstr ""
 
-#: App/Controllers/Common.php:184
+#: App/Controllers/Common.php:183
 msgid "Review is deleted"
 msgstr ""
 
-#: App/Controllers/Common.php:191
+#: App/Controllers/Common.php:190
 msgid "Review status invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:206
+#: App/Controllers/Common.php:200
+msgid "Review validation failed"
+msgstr ""
+
+#: App/Controllers/Common.php:221
 msgid "Webhook received successfully"
 msgstr ""
 
