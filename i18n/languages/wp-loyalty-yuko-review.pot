@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-04T05:19:34+00:00\n"
+"POT-Creation-Date: 2025-09-18T13:25:37+05:30\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-loyalty-yuko-review\n"
 
 #. Plugin Name of the plugin
@@ -43,64 +43,64 @@ msgstr ""
 msgid "Don't have access permission"
 msgstr ""
 
-#: App/Controllers/Common.php:73
+#: App/Controllers/Common.php:79
 msgid "Saving..."
 msgstr ""
 
-#: App/Controllers/Common.php:74
-#: App/Views/main.php:52
+#: App/Controllers/Common.php:80
+#: App/Views/main.php:63
 msgid "Save Settings"
 msgstr ""
 
-#: App/Controllers/Common.php:75
+#: App/Controllers/Common.php:81
 msgid "Copied!"
 msgstr ""
 
-#: App/Controllers/Common.php:76
+#: App/Controllers/Common.php:82
 msgid "Webhook URL copied to clipboard!"
 msgstr ""
 
-#: App/Controllers/Common.php:77
+#: App/Controllers/Common.php:83
 msgid "Failed to copy webhook URL. Please copy it manually."
 msgstr ""
 
-#: App/Controllers/Common.php:97
+#: App/Controllers/Common.php:104
 msgid "Basic check failed"
 msgstr ""
 
-#: App/Controllers/Common.php:102
+#: App/Controllers/Common.php:109
 msgid "Secret key required"
 msgstr ""
 
-#: App/Controllers/Common.php:109
+#: App/Controllers/Common.php:116
 msgid "Setting saved successfully"
 msgstr ""
 
-#: App/Controllers/Common.php:143
+#: App/Controllers/Common.php:152
 msgid "Signature verification failed"
 msgstr ""
 
-#: App/Controllers/Common.php:153
+#: App/Controllers/Common.php:162
 msgid "Customer email invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:161
+#: App/Controllers/Common.php:170
 msgid "Platform product id missing"
 msgstr ""
 
-#: App/Controllers/Common.php:168
+#: App/Controllers/Common.php:177
 msgid "Review status missing"
 msgstr ""
 
-#: App/Controllers/Common.php:175
+#: App/Controllers/Common.php:184
 msgid "Review is deleted"
 msgstr ""
 
-#: App/Controllers/Common.php:182
+#: App/Controllers/Common.php:191
 msgid "Review status invalid"
 msgstr ""
 
-#: App/Controllers/Common.php:197
+#: App/Controllers/Common.php:206
 msgid "Webhook received successfully"
 msgstr ""
 
@@ -113,29 +113,33 @@ msgid "Settings"
 msgstr ""
 
 #: App/Views/main.php:21
+msgid "watch"
+msgstr ""
+
+#: App/Views/main.php:29
 msgid "Back to WPLoyalty"
 msgstr ""
 
-#: App/Views/main.php:30
+#: App/Views/main.php:38
 msgid "Webhook URL:"
 msgstr ""
 
-#: App/Views/main.php:35
+#: App/Views/main.php:45
 msgid "Copy to clipboard"
 msgstr ""
 
-#: App/Views/main.php:37
+#: App/Views/main.php:47
 msgid "Copy"
 msgstr ""
 
-#: App/Views/main.php:40
-msgid "Use this webhook URL in Yuko to notify when a review is approved."
+#: App/Views/main.php:50
+msgid "Use this webhook URL in Yuko to notify when a review is approved. URL must be in HTTPS format."
 msgstr ""
 
-#: App/Views/main.php:43
+#: App/Views/main.php:54
 msgid "Secret key:"
 msgstr ""
 
-#: App/Views/main.php:46
+#: App/Views/main.php:57
 msgid "Enter Secret Key"
 msgstr ""

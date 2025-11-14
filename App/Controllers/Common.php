@@ -43,9 +43,10 @@ class Common {
 		$path     = WLYR_PLUGIN_PATH . 'App/Views/main.php';
 		$settings = get_option( 'wplyr_settings', [] );
 		$params   = [
-			'back_to_apps_url' => admin_url( 'admin.php?' . http_build_query( [ 'page' => WLR_PLUGIN_SLUG ] ) ) . '#/apps',
-			'secret_key'       => $settings['secret_key'] ?? '',
-			'webhook_url'      => rest_url( 'wployalty/yuko/v1/review/approved' )
+			'back_to_apps_url'   => admin_url( 'admin.php?' . http_build_query( [ 'page' => WLR_PLUGIN_SLUG ] ) ) . '#/apps',
+			'secret_key'         => $settings['secret_key'] ?? '',
+			'webhook_url'        => rest_url( 'wployalty/yuko/v1/review/approved' ),
+			'tutorial_video_url' => 'https://youtu.be/X9tmvnIbuS0',
 		];
 		WC::renderTemplate( $path, $params );
 	}

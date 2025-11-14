@@ -169,7 +169,7 @@ $border-color: #E7E7EF;
               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
               border: 2px solid transparent;
               background: linear-gradient(white, white) padding-box,
-                         linear-gradient(135deg, $theme-color, lighten($theme-color, 20%)) border-box;
+              linear-gradient(135deg, $theme-color, lighten($theme-color, 20%)) border-box;
 
               .wlyr-webhook-url-display {
                 flex: 1;
@@ -402,6 +402,30 @@ $border-color: #E7E7EF;
 
           a {
             margin-top: 5px;
+          }
+        }
+
+        .watch-section {
+          display: flex;
+          align-items: center;
+          cursor: $cursor;
+          gap: 0.25rem;
+          color: $theme-color;
+          text-decoration: none;
+
+          i {
+            color: inherit;
+            position: relative;
+            padding-left: 0.75rem;
+            font-weight: 500;
+            font-size: 1rem;
+          }
+
+          .watch-section-title {
+            color: inherit;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
           }
         }
 
