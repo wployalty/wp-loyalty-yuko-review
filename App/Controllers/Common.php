@@ -145,12 +145,10 @@ class Common {
 	public static function handleApprovedReview( \WP_REST_Request $request ) {
 
 		if ( ! self::verifySignature( $request ) ) {
-			wc_get_logger()->add( 'review', 'Signature verification failed' );
-
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Signature verification failed', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 		$body = $request->get_body();
 		$data = json_decode( $body, true );
@@ -160,7 +158,7 @@ class Common {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Customer email invalid', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 
 		$product_id = $data['platform_product_id'] ?? 0;
@@ -168,28 +166,28 @@ class Common {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Platform product id missing', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 
 		if ( empty( $data['status'] ) ) {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Review status missing', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 
 		if ( ! empty( $data['deleted_at'] ) ) {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Review is deleted', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 
 		if ( strtolower( $data['status'] ) !== 'approved' ) {
 			return new \WP_REST_Response( [
 				'success' => false,
 				'message' => __( 'Review status invalid', 'wp-loyalty-yuko-review' )
-			] );
+			],400 );
 		}
 
 		$validation = apply_filters( 'wlyr_validate_review_before_earn', [
