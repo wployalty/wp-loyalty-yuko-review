@@ -192,6 +192,21 @@ class Common {
 			] );
 		}
 
+		$validation = apply_filters( 'wlyr_validate_review_before_earn', [
+			'valid'   => true,
+			'message' => ''
+		], $data );
+
+		if ( ! $validation['valid'] ) {
+			$error_message = ! empty( $validation['message'] ) ? $validation['message'] : __( 'Review validation failed',
+				'wp-loyalty-yuko-review' );
+
+			return new \WP_REST_Response( [
+				'success' => false,
+				'message' => $error_message
+			] );
+		}
+
 		$product_review_helper = new ProductReview();
 		$action_data           = [
 			'user_email'         => $email,
