@@ -3,7 +3,7 @@
  * Plugin Name: WPLoyalty - Yuko Review
  * Plugin URI: https://www.wployalty.net
  * Description: The add-on integrates WPLoyalty with the Yuko and allows you to reward customers with points for writing reviews in Yuko
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: WPLoyalty
  * Slug: wp-loyalty-yuko-review
  * Text Domain: wp-loyalty-yuko-review
@@ -69,7 +69,7 @@ if ( ! isWoocommerceActive() || ! isWployaltyActiveOrNot() ) {
 }
 
 //Define the plugin version
-defined( 'WLYR_PLUGIN_VERSION' ) or define( 'WLYR_PLUGIN_VERSION', '1.0.2' );
+defined( 'WLYR_PLUGIN_VERSION' ) or define( 'WLYR_PLUGIN_VERSION', '1.0.3' );
 defined( 'WLYR_PLUGIN_NAME' ) or define( 'WLYR_PLUGIN_NAME', 'WPLoyalty - Yuko Review' );
 defined( 'WLYR_MINIMUM_PHP_VERSION' ) or define( 'WLYR_MINIMUM_PHP_VERSION', '7.4' );
 defined( 'WLYR_MINIMUM_WP_VERSION' ) or define( 'WLYR_MINIMUM_WP_VERSION', '6.0' );
@@ -96,9 +96,13 @@ if ( class_exists( Router::class ) ) {
 	if ( ! class_exists( \WLYR\App\Helpers\Plugin::class ) || ! class_exists( \WLYR\App\Setup::class ) ) {
 		return;
 	}
-	\WLYR\App\Setup::init();
-	$router = new Router();
-	if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies() ) {
-		$router->init();
-	}
+
+	add_action( 'plugins_loaded', function () {
+		\WLYR\App\Setup::init();
+		$router = new Router();
+		if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies() ) {
+			$router->init();
+		}
+	});
+
 }
