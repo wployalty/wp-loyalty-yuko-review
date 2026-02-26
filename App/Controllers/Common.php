@@ -212,7 +212,8 @@ class Common {
 			'is_calculate_based' => 'product',
 			'product'            => function_exists( 'wc_get_product' ) ? wc_get_product( $product_id ) : false
 		];
-		$product_review_helper->applyEarnProductReview( $action_data );
+		$status = $product_review_helper->applyEarnProductReview( $action_data );
+		do_action( 'wlyr_after_apply_earn_product_review', $data, $action_data, $status );
 
 		return new \WP_REST_Response( [
 			'success' => true,
