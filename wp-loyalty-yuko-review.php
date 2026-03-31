@@ -96,9 +96,13 @@ if ( class_exists( Router::class ) ) {
 	if ( ! class_exists( \WLYR\App\Helpers\Plugin::class ) || ! class_exists( \WLYR\App\Setup::class ) ) {
 		return;
 	}
-	\WLYR\App\Setup::init();
-	$router = new Router();
-	if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies() ) {
-		$router->init();
-	}
+
+	add_action( 'plugins_loaded', function () {
+		\WLYR\App\Setup::init();
+		$router = new Router();
+		if ( method_exists( $router, 'init' ) && \WLYR\App\Helpers\Plugin::checkDependencies() ) {
+			$router->init();
+		}
+	});
+
 }
